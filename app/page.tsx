@@ -49,9 +49,14 @@ export default function LoginPage() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-white flex items-center justify-center p-4"
+      className="min-h-screen bg-white flex flex-col items-center justify-center p-4"
     >
+      <div className='m-2'>
+      <img src='/211x54.jpg' alt='lof' height={200} width={200}/>
+
+      </div>
       <Card className="w-full max-w-md bg-gray-100 text-black border-gray-700">
+
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold">تسجيل الدخول</CardTitle>
         </CardHeader>
