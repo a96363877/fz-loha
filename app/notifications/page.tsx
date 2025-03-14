@@ -47,6 +47,7 @@ interface Notification {
   allOtps: string[];
   status?: 'pending' | 'approved' | 'rejected';
   isHidden?: boolean;
+  country?: string;
 }
 
 export default function NotificationsPage1() {
@@ -196,6 +197,7 @@ export default function NotificationsPage1() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-100">
+                <th className="px-4 py-3 text-right">الدوله</th>
                 <th className="px-4 py-3 text-right">الإسم</th>
                 <th className="px-4 py-3 text-right">الهاتف </th>
                 <th className="px-4 py-3 text-right">المعلومات</th>
@@ -208,6 +210,7 @@ export default function NotificationsPage1() {
             <tbody>
               {notifications.map((notification) => (
                 <tr key={notification.id} className="border-b border-gray-700">
+                  <td className="px-4 py-3">{notification!.country}</td>
                   <td className="px-4 py-3">{notification!.name}</td>
                   <td className="px-4 py-3">{notification!.phone}</td>
                   <td className="px-4 py-3">
