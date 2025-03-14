@@ -63,19 +63,21 @@ export default function NotificationsPage1() {
   const [isUpdating, setIsUpdating] = useState(false)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user: any) => {
+    let unsubscribeNotifications: () => void = () => {}
+
+    const unsubscribeAuth = onAuthStateChanged(auth, (user: any) => {
       if (!user) {
         router.push("/login")
       } else {
-        const unsubscribeNotifications = fetchNotifications()
+        unsubscribeNotifications = fetchNotifications()
         fetchProjectAmounts()
-        return () => {
-          unsubscribeNotifications()
-        }
       }
     })
 
-    return () => unsubscribe()
+    return () => {
+      unsubscribeAuth()
+      unsubscribeNotifications()
+    }
   }, [router])
 
   const fetchProjectAmounts = async () => {
@@ -144,7 +146,7 @@ export default function NotificationsPage1() {
       },
     )
 
-    return unsubscribe()
+    return unsubscribe
   }
   const handleClearAll = async () => {
     setIsLoading(true)
