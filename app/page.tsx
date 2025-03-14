@@ -53,7 +53,6 @@ export default function LoginPage() {
     >
       <div className='m-2'>
       <img src='/211x54.jpg' alt='lof' height={200} width={200}/>
-
       </div>
       <Card className="w-full max-w-md bg-gray-100 text-black border-gray-700">
 
